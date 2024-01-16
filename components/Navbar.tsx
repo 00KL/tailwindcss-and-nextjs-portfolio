@@ -1,5 +1,5 @@
 "use client"; // this is a client component
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-scroll/modules";
 import { usePathname } from "next/navigation";
@@ -32,6 +32,10 @@ export default function Navbar() {
   const currentTheme = theme === "system" ? systemTheme : theme;
   const pathname = usePathname();
   const [navbar, setNavbar] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    setLoaded(true);
+  }, [setLoaded]);
   return (
     <header className="w-full mx-auto  px-4 sm:px-20 fixed top-0 z-50 shadow bg-white dark:bg-stone-900 dark:border-b dark:border-stone-600">
       <div className="justify-between md:items-center md:flex">
@@ -79,20 +83,26 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-              {currentTheme === "dark" ? (
-                <button
-                  onClick={() => setTheme("light")}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiSunLine size={25} color="black" />
-                </button>
-              ) : (
-                <button
-                  onClick={() => setTheme("dark")}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiMoonFill size={25} />
-                </button>
+
+              {/* Light/dark mode switcher */}
+              {loaded && (
+                <>
+                  {currentTheme === "dark" ? (
+                    <button
+                      onClick={() => setTheme("light")}
+                      className="bg-slate-100 p-2 rounded-xl"
+                    >
+                      <RiSunLine size={25} color="black" />
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => setTheme("dark")}
+                      className="bg-slate-100 p-2 rounded-xl"
+                    >
+                      <RiMoonFill size={25} />
+                    </button>
+                  )}
+                </>
               )}
             </div>
           </div>
