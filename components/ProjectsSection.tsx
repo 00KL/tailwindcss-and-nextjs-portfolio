@@ -8,21 +8,21 @@ const projects = [
   {
     name: "Tetris with flutter",
     description: "Simple Tetris-like game made in Flutter.",
-    image: "/projects/standby.jpeg",
+    image: "/projects/tetris.png",
     github: "https://github.com/00KL/Tetris_Flutter",
   },
   {
     name: "Church App",
     description:
       "Application for communicating between the church and its community made in Flutter.",
-    image: "/projects/standby.jpeg",
+    image: "/projects/churchApp.png",
     github: "https://github.com/00KL/ipbjp-mobile",
   },
   {
     name: "Voting Dapp",
     description:
       "Application for voting on cadidates made in Solidity and Simple HTML, Javascprit and CSS.",
-    image: "/projects/standby.jpeg",
+    image: "/projects/votingApp.png",
     github: "https://github.com/00KL/votingDapp",
   },
   {
